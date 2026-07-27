@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Friendship Day 💌</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&family=Great+Vibes&family=Quicksand:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css" />
+  
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<!-- <script src="script.js"></script> -->
+</head>
+<body>
+  
+  <!-- ========== MOBILE BLOCK SCREEN ========== -->
+<div id="mobile-block" class="mobile-block" hidden aria-hidden="true">
+    <div class="mobile-block__fx" aria-hidden="true"></div>
+    <div class="mobile-block__content">
+      <div class="mobile-block__envelope" aria-hidden="true">💌</div>
+      <h1 class="mobile-block__title" style="font-size: 1.25rem;">My reaction right now---</h1>
+      <img src="assets/Why are you gay.jpg" alt="" style=" margin: 12px auto 0; max-width: 50%; height: auto; border-radius: 8px;" />
+      <!-- <p class="mobile-block__message">
+        This little surprise was made for a bigger screen 💌<br />
+        Please open this on a laptop or desktop to see it properly.
+      </p> -->
+    </div>
+  </div>
+
+  <!-- ========== DESKTOP EXPERIENCE ========== -->
+  <div id="desktop-app" class="desktop-app">
+    <!-- Floating background décor (shared) -->
+    <div class="bg-floaters" id="bg-floaters" aria-hidden="true"></div>
+
+    <!-- Envelope opening screen -->
+    <section id="envelope-screen" class="envelope-screen" aria-label="Open your letter">
+      <p class="tap-prompt" id="tap-prompt">Tap to open ✨</p>
+
+      <div class="envelope-stage" id="envelope-stage" role="button" tabindex="0" aria-label="Open the envelope">
+        <div class="envelope" id="envelope">
+          <div class="envelope__shadow"></div>
+
+          <!-- Back of envelope -->
+          <div class="envelope__back"></div>
+
+          <!-- Letter peeking / sliding out -->
+          <div class="envelope__letter" id="envelope-letter">
+            <div class="envelope__letter-lines">
+              <span></span><span></span><span></span>
+            </div>
+            <p class="envelope__letter-hint">For you ♡</p>
+          </div>
+
+          <!-- Front pocket -->
+          <div class="envelope__front">
+            <div class="envelope__front-inner"></div>
+          </div>
+
+          <!-- Flap (opens with rotateX) -->
+          <div class="envelope__flap" id="envelope-flap">
+            <div class="envelope__flap-inner"></div>
+          </div>
+
+          <!-- Wax seal -->
+          <div class="envelope__seal" id="envelope-seal">
+            <span class="envelope__seal-heart">♥</span>
+          </div>
+
+          <!-- Ribbon accent -->
+          <div class="envelope__ribbon" aria-hidden="true"></div>
+        </div>
+      </div>
+
+      <p class="envelope-screen__sub">Happy Friendship Day</p>
+    </section>
+
+    <!-- Main letter / content page -->
+    <main id="letter-page" class="letter-page" hidden>
+      <div class="letter-sheet">
+        <!-- Section 1 -->
+        <section class="content-block reveal" data-reveal>
+          <h3 class="heading-script">Happy Friendship Day Haathibaa 🐘</h3>
+          <p class="body-text" id="placeholder-1">
+            Let's celebrate our 3rd Friendship Day with a song.
+          </p>
+        </section>
+
+        <!-- Play song button -->
+        <section class="content-block reveal audio-controls" data-reveal >
+          <button type="button" class="gift-btn" id="btn-play" aria-pressed="false">
+            <span class="gift-btn__icon" aria-hidden="true">
+              <span class="eq" id="eq-bars">
+                <i></i><i></i><i></i><i></i>
+              </span>
+              <span class="play-glyph" id="play-glyph">▶</span>
+            </span>
+            <span class="gift-btn__label" id="btn-play-label">start our song 🎵</span>
+          </button>
+        </section>
+
+        <!-- Section 2 -->
+        <section class="content-block reveal" data-reveal>
+          <p class="body-text" id="placeholder-2">
+            I've learnt a lot of things from you — I genuinely love how you respond. Kabhi kabhi toh mujhe hi dumb feel ho jaata hai, aur agar dumb feel ho raha hai toh samajh ja, you are cooking great.<br>
+Haathi ba, yeh dosti apun nahi bhoolenge.
+<br>
+Sentiments over ho gaye, let's change the mahol — tap here to change the mood.
+          </p>
+        </section>
+
+        <!-- Change song button -->
+        <section class="content-block reveal audio-controls" data-reveal>
+          <button type="button" class="gift-btn gift-btn--secondary" id="btn-toggle-song">
+            <span class="gift-btn__icon" aria-hidden="true">🎶</span>
+            <span class="gift-btn__label" id="btn-toggle-label">Tap here to change the song 🎶</span>
+          </button>
+          <p class="now-playing" id="now-playing" aria-live="polite"></p>
+        </section>
+
+        <!-- Section 3 -->
+        <section class="content-block reveal" data-reveal>
+          <p class="body-text" id="placeholder-3">
+          It's been 2.5 years with you. In the first year I found out you're a good listener, in the second year I found out you're caring, and in the last 0.5 years I found out you're dumb.<br>
+
+Kuch bhi kaho, tere mein bahut qualities hain. You are very close to perfect — tujhe pata hi hai, yahaan perfect toh main hi hoon.<br>
+
+Mujhe apni life mein tabahi machaane ka mauka dene ke liye dhanyawad. Main aise hi tabahi machaata rahunga.<br>
+          </p>
+        </section>
+
+        <!-- Animated rose -->
+        <section class="content-block reveal rose-section" data-reveal aria-label="A rose for you">
+          <p class="rose-caption">Iss dosti ke naam ek gulaab♡</p>
+          <div class="rose-stage">
+            <div class="falling-petals" id="rose-petals" aria-hidden="true"></div>
+            <svg class="rose-svg" viewBox="0 0 200 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Animated rose">
+              <!-- Stem -->
+              <g class="rose-stem">
+                <path class="stem-path" d="M100 310 C96 260, 108 220, 100 170 C94 140, 110 120, 100 95" fill="none" stroke="#5a8f5a" stroke-width="4" stroke-linecap="round"/>
+                <path class="leaf leaf-left" d="M98 210 Q70 195 62 175 Q88 180 100 195 Z" fill="#6aa36a"/>
+                <path class="leaf leaf-right" d="M102 175 Q135 160 142 145 Q118 155 100 168 Z" fill="#7bb57b"/>
+              </g>
+              <!-- Bloom -->
+              <g class="rose-bloom">
+                <ellipse class="petal p1" cx="100" cy="78" rx="28" ry="36" fill="#e8a0b5"/>
+                <ellipse class="petal p2" cx="78" cy="88" rx="26" ry="34" fill="#f0b8c8" transform="rotate(-28 78 88)"/>
+                <ellipse class="petal p3" cx="122" cy="88" rx="26" ry="34" fill="#f0b8c8" transform="rotate(28 122 88)"/>
+                <ellipse class="petal p4" cx="72" cy="70" rx="20" ry="28" fill="#d98aa3" transform="rotate(-50 72 70)"/>
+                <ellipse class="petal p5" cx="128" cy="70" rx="20" ry="28" fill="#d98aa3" transform="rotate(50 128 70)"/>
+                <ellipse class="petal p6" cx="100" cy="62" rx="18" ry="24" fill="#c96b88"/>
+                <ellipse class="petal p7" cx="100" cy="68" rx="12" ry="16" fill="#b85a78"/>
+                <circle cx="100" cy="72" r="5" fill="#f5d0a9" opacity="0.85"/>
+              </g>
+            </svg>
+            <!-- <p class="rose-caption">A rose that never wilts — just like us ♡</p> -->
+          </div>
+        </section>
+<!-- section 4 -->
+ <section class="content-block reveal" data-reveal>
+          <p class="body-text" id="placeholder-3">
+Aur sun, mera diya hua gulaab dikhta hai with this taunt —<br> lots of wishes and sneh, kyunki pyaar toh ho hi naa paayega bhaiya.
+          </p>
+        </section>
+        <!-- Closing / signature -->
+        <section class="content-block reveal closing" data-reveal>
+          <p class="closing-line shimmer-text">thanking you for everything 💗</p>
+          <!-- <p class="closing-line shimmer-text">your obediently, </p> -->
+          <p class="signature">— [The Most Stylish Parrot 🦜]</p>
+        </section>
+        <!-- Dodge question section -->
+        <section class="content-block reveal dodge-section" data-reveal>
+          <div class="dodge-card">
+            <p class="dodge-label">A small question</p>
+            <h3 class="dodge-question">Can I Get a Video call just after this?</h3>
+            <p class="dodge-sub">Take your time. There's really only one right answer here.</p>
+
+            <div class="dodge-image-wrap">
+              <img
+                class="dodge-image"
+                src="assets/request.png"
+                alt=""
+                loading="lazy"
+              />
+            </div>
+
+            <div class="dodge-stage" id="dodge-stage">
+              <button type="button" class="dodge-btn dodge-btn--yes" id="btn-yes">
+                💗 Yes, I'd love to
+              </button>
+              <button type="button" class="dodge-btn dodge-btn--no" id="btn-no">
+                Nope
+              </button>
+            </div>
+
+            <div class="dodge-result" id="dodge-result" hidden>
+              <p class="dodge-result__text">smart decision, call him now🤩</p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <!-- Audio elements (local assets — swap filenames in script.js) -->
+  <audio id="audio-song1" preload="metadata"></audio>
+  <audio id="audio-song2" preload="metadata"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
